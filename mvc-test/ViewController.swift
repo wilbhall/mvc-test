@@ -10,16 +10,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var fullName: UILabel!
+    
+    @IBOutlet weak var renameField: UITextField!
+ 
+    let person = Person(first: "John", last: "Hancock")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        fullName.text = person.fullName
     }
 
 
+
+    @IBAction func renamePressed(_ sender: Any) {
+        
+        if let txt = renameField.text{
+            person.firstName = txt
+            //reprint to screen
+            fullName.text = person.fullName
+            
+        }
+        
+    }
 }
 
